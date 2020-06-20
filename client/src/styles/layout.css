@@ -1,0 +1,96 @@
+/* NAV ------------------------------ */
+.nav-border {
+    box-shadow: 0 0 25px 0 black;
+}
+
+.p-logo {
+  padding: 1rem 0 1rem 0;
+}
+
+.nav-icon:hover {
+  cursor: pointer;
+}
+
+.dropdown-divider {
+  border-top: 1px solid rgba(2, 2, 37, 0.2);
+}
+/* LYRICS ---------------- */
+.c-btn {
+    background-color: #1D1D1B;
+    border: 2px solid #FFE9C2;
+    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .c-btn:hover {
+    border: 2px solid #ffca6d;
+    color: rgba(218, 204, 189, 0.966);
+  }
+
+  .p-lyrics {
+      font-size: 20px;
+  }
+
+  .lyrics-container {
+    border: 1px solid rgb(143, 143, 8);
+    padding: 1rem 1rem 1rem 1rem;
+    background-color: #1D1D1B;
+    border-radius: 20px;
+    box-shadow: 12px 12px 2px 1px rgba(2, 2, 37, 0.2);
+  }
+
+  /* JUMBO -------------------------- */
+.jumbo-img-bg {
+  background-image: url('../assets/jumbo-min.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  box-shadow: 12px 12px 2px 1px rgba(2, 2, 37, 0.2);
+}
+
+.jumbo-content {
+  position: static!important;
+  padding: 10px;
+  width: 50vw;
+  max-height: 80vh;
+  background: rgba(0, 0, 0, 0.555);
+  border-radius: 15px;
+  color: white;
+}
+
+
+.icon-actu {
+  color: black;
+  font-size: 60px;
+}
+
+/* Actus ---------------- */
+.album-img-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+
+
+/* Contact -------------- */
+.contact-button {
+  border: 1px solid rgb(143, 143, 8);
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: #140c11;
+}
+
+.contact-button:hover {
+  color: rgba(255, 255, 255, 0.973);
+  border: 1px solid rgb(209, 209, 10);
+
+}
+
+.form-border {
+  border-radius: 30px;
+  box-shadow: 12px 12px 2px 1px rgba(2, 2, 37, 0.2);
+
+}
+

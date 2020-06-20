@@ -1,0 +1,25 @@
+body {
+    color: #796757;
+    background: #FFE9C2;
+    /* background: linear-gradient(180deg, #ffac97 0%,  #FFE9C2 100%); */
+}
+
+.nav-bg {
+    background-color: #1D1D1B;
+    opacity: 1;
+    color: white;
+}
+
+a {
+    color: white;
+    text-decoration : none;
+  }
+
+  a:hover {
+      color: white;
+      text-decoration: none;
+  }
+
+.form-bg {
+    background-color: #1D1D1B;
+}

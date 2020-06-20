@@ -1,0 +1,32 @@
+@media only screen and (max-width: 991px) {
+  .resp-nav {
+    display: none;
+  }
+  .resp-logo {
+      display: flex;
+      align-items:center;
+      justify-content: center;
+  }
+}
+
+.resp-m-top {
+  margin-top: 3rem;
+}
+@media only screen and (max-width: 992px) {
+  .resp-m-top {
+    margin-top: 5rem;
+  }
+  .resp-m-bott {
+    margin-bottom: 2rem;
+  }
+} 
+
+.resp-video-h {
+  height: 25vh;
+}
+
+@media only screen and (max-width: 992px) {
+  .resp-video-h {
+    height: 35vh;
+  }
+}
