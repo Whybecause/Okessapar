@@ -1,10 +1,10 @@
 import React from "react";
-import Logo from "../assets/logo2.png";
+import Logo from "../../assets/logo2.png";
 import { Link } from "react-scroll";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
-import NavThumbnail from './Tools/NavThumbnail';
-import NavIconsThumbnail from './Tools/NavIconsThumbnail';
+import NavThumbnail from './NavThumbnail';
+import NavIconsThumbnail from './NavIconsThumbnail';
 
 function CustomNav() {
   return (

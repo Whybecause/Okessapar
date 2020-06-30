@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { bool } from 'prop-types';
 import { StyledMenu } from './Menu.styled';
-import NavThumbnail from '../Tools/NavThumbnail';
+import NavThumbnail from '../Nav/NavThumbnail';
 
 const Menu = ({ open, setOpen}) => {
   return (

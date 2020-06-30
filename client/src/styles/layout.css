@@ -94,3 +94,7 @@
 
 }
 
+/* spinner */
+.spinner-svg {
+  background: url('../assets//spinner.svg') center no-repeat;
+}

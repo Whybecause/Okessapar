@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import ModalMessage from "./Tools/ModalMessage";
+import ModalMessage from "./ModalMessage";
 
 import { Container, Row, Col, Dropdown } from 'react-bootstrap';
 import { motion } from "framer-motion";
@@ -12,17 +12,16 @@ function Contact() {
     const { register, handleSubmit } = useForm();
     let [responseData, setResponseData] = React.useState("");
 
-    const onClose = () => {
-        setToggle(false)
-        setResponseData(" ")
-      }
-      const onSubmit = (data) => {
+
+      const onSubmit = (data, e) => {
         setLoading(true);
         axios
           .post("/api/contact", data)
           .then((response) => {
             setLoading(false);
             setResponseData(response.data.message);
+            e.target.reset();
+
           })
           .catch((error) => {
             setLoading(false);
@@ -35,7 +34,7 @@ function Contact() {
         <Dropdown.Divider/>
             <div className=" dfjccaicfdrjcc form-bg form-border p-top-3 p-bot-3 m-top-1 m-bot-5">
           <form onSubmit={handleSubmit(onSubmit)} className=" w-80 ">
-              <div>Contactez nous</div>
+              <div>Contactez-nous</div>
             <div className="form-group">
               <input
                 type="text"
@@ -74,7 +73,7 @@ function Contact() {
                 >
                   <button
                     type="submit"
-                    className="contact-button w-100"
+                    className="contact-button w-100 d-flex align-items-center justify-content-center"
                     disabled={loading}
                   >
                     {loading && (

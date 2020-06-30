@@ -3,16 +3,33 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const corsOptions = {
-    origin : "http://localhost:3000"
-}
 const path = require("path");
+const mongoose = require('mongoose');
+const corsOptions = {origin : "http://localhost:3000"}
+
+const youtubeRoutes = require('./routes/youtube.routes');
+const emailRoutes = require('./routes/email.routes');
+const showRoutes = require('./routes/show.routes');
+const userRoutes = require('./routes/user.routes');
+
+mongoose.connect(process.env.MONGODB_URI,
+  { useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true })
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 app.use(cors(corsOptions));
+// parse requests of content-type - application/json
 app.use(bodyParser.json());
+// parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-require('./form.routes')(app);
+
+app.use("/api", youtubeRoutes);
+app.use("/api", emailRoutes);
+app.use("/api", showRoutes);
+app.use("/api", userRoutes);
 
 if (process.env.NODE_ENV === "production") {
     const appPath = path.join(__dirname, "client", "build");
@@ -22,9 +39,12 @@ if (process.env.NODE_ENV === "production") {
         res.sendFile(path.resolve(appPath, "index.html"));
     });
 }
-
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
+
+
 

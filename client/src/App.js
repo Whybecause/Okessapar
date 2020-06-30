@@ -3,15 +3,15 @@ import { BrowserRouter } from "react-router-dom";
 import { useOnClickOutside } from "./hooks";
 
 import { Burger, Menu } from "./components";
-import CustomNav from "./components/Nav";
+import CustomNav from "./components/Nav/Nav";
 import Jumbo from "./components/Jumbo";
-import Actus from "./components/Actus";
+import Actus from "./components/Actus/Actus";
 import Videos from "./components/Videos";
-import Photos from "./components/Photos";
+import Photos from "./components/Photos/Photos";
 import Shows from "./components/Shows";
-import Lyrics from "./components/Lyrics";
+import Lyrics from "./components/Lyrics/Lyrics";
 import Bio from "./components/Bio";
-import Contact from "./components/Contact";
+import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer";
 
 function App() {

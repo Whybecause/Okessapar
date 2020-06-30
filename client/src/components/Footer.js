@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import NavIconsThumbnail from "./Tools/NavIconsThumbnail";
+import NavIconsThumbnail from "./Nav/NavIconsThumbnail";
 
 function Footer() {
   return (

@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import { FaYoutube, FaSpotify, FaBandcamp } from "react-icons/fa";
-import ActusThumbnail from "./Tools/ActusThumbnail";
+import ActusThumbnail from "./ActusThumbnail";
 
-import aya from "../assets/aya.jpg";
-import album from "../assets/photo0-min.jpg";
+import aya from "../../assets/aya.jpg";
+import album from "../../assets/photo0-min.jpg";
 
 function Actus() {
   return (

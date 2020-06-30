@@ -1,16 +1,16 @@
 import React from "react";
 import { Container, Row, Col, Dropdown } from "react-bootstrap";
-import ImageComponent from "./Tools/ImageComponent";
+import ImageComponent from "./ImageComponent";
 
-import photo0 from "../assets/photo0-min.jpg";
-import photo1 from "../assets/photo1-min.jpg";
-import photo2 from "../assets/photo2-min.jpg";
-import photo3 from "../assets/photo3-min.jpg";
-import photo4 from "../assets/photo4-min.jpg";
-import photo5 from "../assets/photo5-min.jpg";
-import photo6 from "../assets/photo6-min.jpg";
-import photo7 from "../assets/photo7-min.jpg";
-import photo8 from "../assets/jumbo-min.jpg";
+import photo0 from "../../assets/photo0-min.jpg";
+import photo1 from "../../assets/photo1-min.jpg";
+import photo2 from "../../assets/photo2-min.jpg";
+import photo3 from "../../assets/photo3-min.jpg";
+import photo4 from "../../assets/photo4-min.jpg";
+import photo5 from "../../assets/photo5-min.jpg";
+import photo6 from "../../assets/photo6-min.jpg";
+import photo7 from "../../assets/photo7-min.jpg";
+import photo8 from "../../assets/jumbo-min.jpg";
 
 function Photos() {
   return (

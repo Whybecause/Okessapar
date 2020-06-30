@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import LyricsThumbnail from "./Tools/Lyrics.thumbnail";
+import LyricsThumbnail from "./Lyrics.thumbnail";
 
 import ElleText from "./Lyrics-text/ElleText";
 import AuFootText from "./Lyrics-text/AuFootText";
