@@ -32,23 +32,26 @@ const functions = require('../functions/user.functions');
 
   exports.login = async (req, res, next) => {
       try {
-          const user = await User.findOne({ email: req.body.email });
-          const isValidPass = await bcrypt.compare(req.body.password, user.password);
-          const token = await jwt.sign({ id: user.id}, process.env.JWT_KEY, {
-              expiresIn: 86400
-          });
+        const user = await User.findOne({ email: req.body.email }).populate("roles", "-__v")
+        if (!user) { return res.status(401).json({ message: 'Aucun utilisateur trouvé' }); }
+        const isValidPass = await bcrypt.compare(req.body.password, user.password);
+        if (!isValidPass) { return res.status(401).json({ message: 'Mauvais mot de passe' }); }
+        const token = await jwt.sign({ id: user.id}, process.env.JWT_KEY, {
+            expiresIn: 86400
+         });
 
-          if (!user) { return res.status(401).json({ message: 'Aucun utilisateur trouvé' }); }
-          if (!isValidPass) { return res.status(401).json({ message: 'Mauvais mot de passe' }); }
-
+        const authorities = [];
+        for (let i=0; i<user.roles.length; i++) {
+            authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
+        }
           res.status(200).json({
               id: user._id,
               email: user.email,
               token: token,
+              roles: authorities
           });
 
       } catch(e) {
-          console.log(e);
-          res.status(401).json({ message: 'Erreur', e });
+          res.status(401).json({ message: 'Erreur' });
       }
   };

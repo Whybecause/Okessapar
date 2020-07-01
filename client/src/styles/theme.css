@@ -30,3 +30,7 @@ a {
 .form-bg {
     background-color: #1D1D1B;
 }
+
+.font-small {
+    font-size: 20px;
+}

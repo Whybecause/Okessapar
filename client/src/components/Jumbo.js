@@ -1,6 +1,5 @@
 import React from "react";
-import jumbo from "../assets/jumbo-min.jpg";
-import { Container, Row, Dropdown } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 function Jumbo() {
   return (
     <Container fluid className="h-page p-top-14vh w-100" id="jumbo">

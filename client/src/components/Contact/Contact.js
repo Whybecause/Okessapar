@@ -7,7 +7,6 @@ import { Container, Row, Col, Dropdown } from 'react-bootstrap';
 import { motion } from "framer-motion";
 
 function Contact() {
-    const [isToggled, setToggle] = useState(false);
     const [loading, setLoading] = useState(false);
     const { register, handleSubmit } = useForm();
     let [responseData, setResponseData] = React.useState("");

@@ -1,6 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Dropdown } from "react-bootstrap";
-import { FaYoutube, FaSpotify, FaBandcamp } from "react-icons/fa";
+import { Container, Dropdown } from "react-bootstrap";
 import ActusThumbnail from "./ActusThumbnail";
 
 import aya from "../../assets/aya.jpg";

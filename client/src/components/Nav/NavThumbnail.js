@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
-import { Nav } from "react-bootstrap";
 
 
 function NavThumbnail(props) {

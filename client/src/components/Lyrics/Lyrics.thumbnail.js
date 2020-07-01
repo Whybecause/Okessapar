@@ -8,7 +8,7 @@ function LyricsThumbnail(props) {
   const handleShow = () => setShow(true);
   return (
     <>
-      <Col lg={4} xs={6} className="p-bot-1">
+      <Col lg={4} xs={6} className="p-bot-1 p-top-1">
         <motion.button
           whileTap={{ scale: 0.8 }}
           whileHover={{ scale: 1.1 }}
