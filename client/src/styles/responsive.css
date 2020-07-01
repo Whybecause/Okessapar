@@ -7,6 +7,21 @@
       align-items:center;
       justify-content: center;
   }
+  .resp-user {
+    position: fixed;
+    left: 80%;
+    top: 3vh;
+    right: 5%;
+  }
+}
+
+@media only screen and (min-width: 991px) {
+  .resp-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
 }
 
 .resp-m-top {

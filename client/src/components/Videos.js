@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Container, Row, Col } from "react-bootstrap";
-
+import VideoService from '../services/videos.service';
 const Videos = () => {
   const [videos, setVideos] = useState([]);
 
   // Fetch videos from youtube playlist
   async function retrieveVideos() {
-    const result = await axios
-      .get("/api/videos")
+    VideoService.getVideos()
       .then((response) => {
         setVideos(response.data)
       })

@@ -12,7 +12,6 @@ import MindsoulText from "./Lyrics-text/MindsoulText";
 import NosDefautsText from "./Lyrics-text/NosDefautsText";
 import PoemeText from "./Lyrics-text/PoemeText";
 import TFSText from "./Lyrics-text/TFSText";
-import { motion } from "framer-motion";
 
 function Lyrics() {
   return (

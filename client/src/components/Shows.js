@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import DatePicker from "react-datepicker";
 import moment from "moment";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Container, Row, Col } from "react-bootstrap";
-
+import ShowService from '../services/shows.service';
+import AuthService from '../services/auth.service';
+import authHeader from '../services/auth-header';
 const Shows = () => {
-  const [shows, setShows] = useState([]);
-  const date = new Date();
   const { register, handleSubmit } = useForm();
+  const [shows, setShows] = useState([]);
   const [message, setMessage] = React.useState("");
   const [loading, setLoading] = useState(false);
   const [isToggled, setToggle] = useState(false);
+  const [ isAdmin, setAdmin ] = useState(false);
 
   // Fetch shows data from DB
   async function retrieveShows() {
-    const result = await axios
-      .get("/api/shows")
+    ShowService.getShows()
       .then((response) => {
         setShows(response.data);
-        console.log(response.data);
       })
       .catch((e) => {
         console.log(e);
@@ -28,12 +27,17 @@ const Shows = () => {
 
   useEffect(() => {
     retrieveShows();
+    const user = AuthService.getCurrentUser();
+    if (user !== null) {
+      setAdmin(user.roles.includes("ROLE_ADMIN"))
+    }
   }, []);
 
+  // Add new date show
   const onSubmit = (data, e) => {
     setLoading(true);
     axios
-      .post("/api/shows", data)
+      .post("/api/shows", data, { headers : authHeader()})
       .then((response) => {
         setLoading(false);
         setMessage(response.data.message);
@@ -69,6 +73,7 @@ const Shows = () => {
       </Row>
 
       {/* AJOUTER DES DATES ----------------------------------------*/}
+      {isAdmin && (      
       <div className="d-flex align-items-center justify-content-center p-top-3">
         <button
           className="contact-button  d-flex align-items-center justify-content-center"
@@ -77,6 +82,7 @@ const Shows = () => {
           +
         </button>
       </div>
+      )}
 
       {isToggled && (
         <div className=" dfjccaicfdrjcc form-bg form-border p-top-3 p-bot-3 m-top-1 m-bot-5">
@@ -109,7 +115,7 @@ const Shows = () => {
                 ref={register({ required: true })}
               />
             </div>
-            <div className="form-group">
+            {/* <div className="form-group">
               <input
                 type="text"
                 className="form-control"
@@ -117,7 +123,7 @@ const Shows = () => {
                 name="expireAt"
                 ref={register({ required: true })}
               />
-            </div>
+            </div> */}
             <button
               type="submit"
               className="contact-button w-100 d-flex align-items-center justify-content-center"
