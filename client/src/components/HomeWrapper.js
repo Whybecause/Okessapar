@@ -1,6 +1,5 @@
 import React from 'react';
-import Jumbo from "../components/Jumbo";
-import Actus from "../components/Actus/Actus";
+import Jumbo from "./Jumbo/Jumbo";
 import Videos from "../components/Videos";
 import Photos from "../components/Photos/Photos";
 import Shows from "../components/Shows";
@@ -12,7 +11,6 @@ function HomeWrapper() {
     return (
         <div>
             <Jumbo />
-            <Actus />
             <Shows />
             <Videos />
             <Lyrics />

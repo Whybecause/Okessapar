@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import moment from "moment";
+import { Link } from 'react-scroll';
 import { useForm } from "react-hook-form";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import ShowService from '../services/shows.service';
 import AuthService from '../services/auth.service';
 import authHeader from '../services/auth-header';
@@ -50,16 +51,16 @@ const Shows = () => {
   };
 
   return (
-    <Container className="p-top-3vh" id="shows">
-      {/* AFFICHAGE DES DATES ---------------------------------*/}
-
-      <Row className="resp-m-top">
+    <Container id="shows"  >
+      {/* AFFICHAGE DES DATES SI ADMIN ---------------------------------*/}
+      <Dropdown.Divider  />
+      <Row className="resp-m-top"  >
         <Col lg={12} className="dfjccaicfdrjcc resp-m-bott">
           <h1>Shows</h1>
         </Col>
         {shows.length ? (
           shows.map((show) => (
-            <Col lg={12} className="dfjccaicfdrjcc m-top-3" key={show._id}>
+            <Col lg={12} className="dfjccaicfdrjcc p-top-1" key={show._id}>
               <a href={show.link} className="a-shows">
                 {moment(show.date).format("D MMMM YYYY")} : {show.adress}
               </a>
@@ -76,17 +77,28 @@ const Shows = () => {
       {isAdmin && (      
       <div className="d-flex align-items-center justify-content-center p-top-3">
         <button
-          className="contact-button  d-flex align-items-center justify-content-center"
+          className="contact-button d-flex align-items-center justify-content-center   "
+          id="add-dates-form"
+          >
+          <Link
           onClick={() => setToggle(true)}
+          className="w-100"
+          activeClass="active"
+          to="add-dates-form"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
         >
           +
+          </Link>
         </button>
       </div>
       )}
 
       {isToggled && (
-        <div className=" dfjccaicfdrjcc form-bg form-border p-top-3 p-bot-3 m-top-1 m-bot-5">
-          <form onSubmit={handleSubmit(onSubmit)} className="w-80">
+        <div className=" dfjccaicfdrjcc form-bg form-border p-top-3 p-bot-3 m-top-1 m-bot-5" >
+          <form onSubmit={handleSubmit(onSubmit)} className="w-80" >
             <div>Ajouter une date</div>
             <div className="form-group">
               <input
@@ -115,15 +127,6 @@ const Shows = () => {
                 ref={register({ required: true })}
               />
             </div>
-            {/* <div className="form-group">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Expire YYYY-MM-DD"
-                name="expireAt"
-                ref={register({ required: true })}
-              />
-            </div> */}
             <button
               type="submit"
               className="contact-button w-100 d-flex align-items-center justify-content-center"

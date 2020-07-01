@@ -14,7 +14,7 @@ import photo8 from "../../assets/jumbo-min.jpg";
 
 function Photos() {
   return (
-    <Container className="p-top-8vh" id="photos">
+    <Container className="m-top-3" id="photos">
       <Dropdown.Divider />
       <Row xs={2} className="resp-m-top">
         <Col lg={6} xs={12} className="dfjccaicfdrjcc resp-m-bott">

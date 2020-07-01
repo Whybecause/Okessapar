@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import LyricsThumbnail from "./Lyrics.thumbnail";
 
 import ElleText from "./Lyrics-text/ElleText";
@@ -16,8 +16,7 @@ import TFSText from "./Lyrics-text/TFSText";
 function Lyrics() {
   return (
     <Container id="lyrics">
-
-      <hr />
+      <Dropdown.Divider />
       <Row className="resp-m-top">
         <Col lg={12} className="dfjccaicfdrjcc resp-m-bott p-bot-1">
           <h1>Lyrics</h1>

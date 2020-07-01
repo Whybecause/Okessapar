@@ -1,9 +1,9 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Dropdown } from "react-bootstrap";
 function Bio() {
   return (
-    <Container className="p-top-3vh" id="bio">
-      <hr />
+    <Container className="m-top-3" id="bio">
+      <Dropdown.Divider />
       <Row className="resp-m-top">
         <Col lg={6} className="dfjccaicfdrjcc resp-m-bott">
           <h1>Bio</h1>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import VideoService from '../services/videos.service';
 const Videos = () => {
   const [videos, setVideos] = useState([]);
@@ -20,8 +20,8 @@ const Videos = () => {
   }, []);
 
   return (
-    <Container className=" p-top-3vh" id="videos">
-      <hr />
+    <Container className=" m-top-3" id="videos">
+      <Dropdown.Divider />
       <Row className="resp-m-top">
         <Col lg={6} sm={12} className="dfjccaicfdrjcc resp-m-bott ">
           <h1>Vidéos</h1>
