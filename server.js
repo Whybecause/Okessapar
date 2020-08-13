@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require("path");
 const mongoose = require('mongoose');
-const corsOptions = {origin : "http://localhost:3000"}
+// const corsOptions = {origin : "http://localhost:3000"}
 
 const youtubeRoutes = require('./routes/youtube.routes');
 const emailRoutes = require('./routes/email.routes');
@@ -20,8 +20,13 @@ mongoose.connect(process.env.MONGODB_URI,
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:8081'
+}));
 // parse requests of content-type - application/json
+
 app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -40,11 +45,10 @@ if (process.env.NODE_ENV === "production") {
     });
 }
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+const server = app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 
-
-
-
+// const io = require('socket.io').listen(server);
+// require('./socket')(io);
 

@@ -21,3 +21,4 @@ exports.getAllShows = (req, res) => {
     .then(shows => res.status(200).json(shows))
     .catch(error => res.status(400).json({ error: error}));
 }
+

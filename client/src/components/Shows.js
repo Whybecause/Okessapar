@@ -7,6 +7,9 @@ import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import ShowService from '../services/shows.service';
 import AuthService from '../services/auth.service';
 import authHeader from '../services/auth-header';
+// import io from 'socket.io-client';
+// const socket = io('http://localhost:8080');
+
 const Shows = () => {
   const { register, handleSubmit } = useForm();
   const [shows, setShows] = useState([]);
@@ -14,6 +17,14 @@ const Shows = () => {
   const [loading, setLoading] = useState(false);
   const [isToggled, setToggle] = useState(false);
   const [ isAdmin, setAdmin ] = useState(false);
+
+  // const [ response, setResponse ]  = useState("");
+  // useEffect( () => {
+  //   socket.on('FromAPI', data => {
+  //     setResponse(data);
+  //   });
+  // }, []);
+  
 
   // Fetch shows data from DB
   async function retrieveShows() {
@@ -32,9 +43,10 @@ const Shows = () => {
     if (user !== null) {
       setAdmin(user.roles.includes("ROLE_ADMIN"))
     }
-  }, []);
+  }, [shows]);
 
-  // Add new date show
+
+    // Add new date show
   const onSubmit = (data, e) => {
     setLoading(true);
     axios
@@ -52,6 +64,8 @@ const Shows = () => {
 
   return (
     <Container id="shows"  >
+      {/* <p>its <time dateTime={response}>{response}</time>
+      </p> */}
       {/* AFFICHAGE DES DATES SI ADMIN ---------------------------------*/}
       <Dropdown.Divider  />
       <Row className="resp-m-top"  >
