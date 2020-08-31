@@ -36,14 +36,24 @@ app.use("/api", emailRoutes);
 app.use("/api", showRoutes);
 app.use("/api", userRoutes);
 
-// if (process.env.NODE_ENV === "production") {
-    const appPath = path.join(__dirname, "../client/build");
-    app.use(express.static(appPath));
+// Pour AWS
+    // const appPath = path.join(__dirname, "../client/build");
+    // app.use(express.static(appPath));
 
-    app.get("*", (req, res) => {
-        res.sendFile(path.join(appPath, "index.html"));
-    });
-// }
+    // app.get("*", (req, res) => {
+    //     res.sendFile(path.join(appPath, "index.html"));
+    // });
+
+// Pour Heroku : 
+if (process.env.NODE_ENV === "production") {
+  const appPath = path.join(__dirname, "client", "build");
+  app.use(express.static(appPath));
+
+  app.get("*", (req, res) => {
+      res.sendFile(path.resolve(appPath, "index.html"));
+  });
+}
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
