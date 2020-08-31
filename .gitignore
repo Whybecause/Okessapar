@@ -1,0 +1,6 @@
+.env
+node_modules
+TODO.txt
+MEMO.txt
+client_secret.json
+ssh
