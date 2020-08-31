@@ -36,19 +36,16 @@ app.use("/api", emailRoutes);
 app.use("/api", showRoutes);
 app.use("/api", userRoutes);
 
-if (process.env.NODE_ENV === "production") {
-    const appPath = path.join(__dirname, "client", "build");
+// if (process.env.NODE_ENV === "production") {
+    const appPath = path.join(__dirname, "../client/build");
     app.use(express.static(appPath));
 
     app.get("*", (req, res) => {
-        res.sendFile(path.resolve(appPath, "index.html"));
+        res.sendFile(path.join(appPath, "index.html"));
     });
-}
+// }
 const PORT = process.env.PORT || 8080;
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
-// const io = require('socket.io').listen(server);
-// require('./socket')(io);
 
