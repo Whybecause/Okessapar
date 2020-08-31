@@ -1,16 +1,31 @@
 exports.transporter = () => {
+
   const nodemailer = require("nodemailer");
+  const { google } = require('googleapis');
+  const OAuth2 = google.auth.OAuth2;
+  const oauth2Client = new OAuth2 (
+    process.env.OAUTH2_ID,
+    process.env.OAUTH2_CODE,
+    "https://developers.google.com/oauthplayground"
+  );
+  oauth2Client.setCredentials({
+    refresh_token: process.env.OAUTH2_REFRESH_TOKEN
+  });
+  const accessToken = oauth2Client.getAccessToken();
+
   const result = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
+    service: "gmail",
     auth: {
+      type: "OAuth2",
       user: process.env.ADMIN_EMAIL,
-      pass: process.env.ADMIN_PASS,
+      clientId: process.env.OAUTH2_ID,
+      clientSecret: process.env.OAUTH2_CODE,
+      refreshToken: process.env.OAUTH2_REFRESH_TOKEN,
+      accessToken: accessToken
     },
     tls: {
       rejectUnauthorized: false,
-    },
+    }
   });
   return(result);
 };
